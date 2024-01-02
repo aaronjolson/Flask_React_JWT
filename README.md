@@ -38,7 +38,7 @@ Unlock the power of full-stack web development today and propel your projects in
 1. Clone the repository:
 
    ```shell
-   git clone <repository-url>
+   git clone https://github.com/aaronjolson/Flask_React_JWT.git
    
 2. cd into project
    ```shell
