@@ -30,42 +30,6 @@ cur.execute("""
     )
 """)
 
-# Create UPLOADS table
-cur.execute("""
-    CREATE TABLE IF NOT EXISTS uploads (
-        upload_id VARCHAR(255) PRIMARY KEY,
-        upload_name VARCHAR(255),
-        user_id VARCHAR(255) REFERENCES users(username),
-        upload_date DATE,
-        file_location VARCHAR(255),
-        file_size FLOAT
-    )
-""")
-
-# Create LIKES table
-cur.execute("""
-    CREATE TABLE IF NOT EXISTS likes (
-        user_id VARCHAR(255) REFERENCES users(username),
-        image_id VARCHAR(255) REFERENCES uploads(upload_id)
-    )
-""")
-
-# Create CATEGORIES table
-cur.execute("""
-    CREATE TABLE IF NOT EXISTS categories (
-        category_id VARCHAR(255) PRIMARY KEY,
-        category_name VARCHAR(255)
-    )
-""")
-
-# Create IMAGE_CATEGORIES table
-cur.execute("""
-    CREATE TABLE IF NOT EXISTS image_categories (
-        category_id VARCHAR(255) REFERENCES categories(category_id),
-        image_id VARCHAR(255) REFERENCES uploads(upload_id)
-    )
-""")
-
 # Commit the changes to the database and close the cursor
 conn.commit()
 cur.close()
