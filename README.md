@@ -1,14 +1,14 @@
 # Flask React JWT Complete Demo
 This project is intended to be used as a starting point and teaching tool for building web projects that
-use self-managed login and (hashed) password storage. 
+have a self-managed login, (hashed) password storage, JWT tokens for auth and session management, 
+Flask as the backend framework connected to Postgres, and React as the frontend framework.   
 
 The app's main features include
 - A signup form
 - A login form
 - A logout form
 - A protected profile page that can only be accessed by a user that has successfully signed up and logged in
-
-The App is built using Flask, React, and Postgres. It uses JWT tokens for auth and session management.
+ 
 It is fully deployable using Docker Compose.
 
 ## Prerequisites
