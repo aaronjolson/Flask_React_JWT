@@ -8,7 +8,6 @@ import { jwtDecode } from 'jwt-decode';
 import LoggedInIndicator from './components/LoggedInIndicator';
 
 import SignUpPage from './pages/SignupPage';
-import UploadPage from './pages/UploadPage';
 import LoginPage from './pages/LoginPage';
 import LogoutPage from './pages/LogoutPage';
 import HomePage from './pages/HomePage';
@@ -94,7 +93,6 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage/>} />
             <Route path="/signup" exact element={<SignUpPage/>} />
-            <Route path="/upload" element={<UploadPage/>} />
             <Route path="/login" element={<LoginPage/>} />
             <Route path="/logout" element={<LogoutPage/>} />
             <Route path="/profile" element={<ProfilePage/>} />
