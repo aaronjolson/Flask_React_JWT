@@ -6,7 +6,7 @@ function HomePage() {
 
   return (
     <div>
-      <h1>Gallery</h1>
+      <h1>Home</h1>
       {user ? (
         <p>Hello, {user.email}</p>
       ) : (
