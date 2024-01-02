@@ -1,0 +1,7 @@
+.login-indicator {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: green;
+}

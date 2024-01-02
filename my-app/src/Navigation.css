@@ -1,0 +1,14 @@
+.navigation-list {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation-item {
+  margin-right: 10px;
+}
+
+.navigation-item:last-child {
+  margin-right: 0;
+}
