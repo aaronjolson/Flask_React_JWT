@@ -59,6 +59,8 @@ Unlock the power of full-stack web development today and propel your projects in
    npm start
    ```
 
+6. Navigate to localhost:5000 and explore.
+
 ## Debugging and development
 ### Stopping the application
 To stop the application and remove the containers, run the following command:
