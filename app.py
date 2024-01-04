@@ -1,14 +1,10 @@
 from datetime import datetime, timedelta
-import io
-import uuid
 import secrets
 from functools import wraps
 
 from flask import Flask, request, jsonify, Response, send_file, abort
 import psycopg2
 from passlib.hash import bcrypt
-import boto3
-from botocore.exceptions import ClientError
 import jwt
 from flask_cors import CORS
 
