@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 import secrets
 from functools import wraps
 
-from flask import Flask, request, jsonify, Response, send_file, abort
+from flask import Flask, request, jsonify, Response
 import psycopg2
 from passlib.hash import bcrypt
 import jwt
