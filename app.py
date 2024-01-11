@@ -149,13 +149,6 @@ def login():
     return jsonify({"token": token, "message": "Logged in successfully"}), 200
 
 
-@app.route("/logout", methods=["POST"])
-def logout():
-    #TODO invalidate the jwt in the header
-
-    return jsonify({"message": "Logout successful"}), 200
-
-
 @app.route("/user", methods=["GET"])
 @requires_auth
 def get_user_info():
