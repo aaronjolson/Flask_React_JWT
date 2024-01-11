@@ -93,7 +93,7 @@ def signup():
         return Response("Username or email already exists", status=400)
 
     # Create a new row in the USERS table with the provided data
-    cur.execute("INSERT INTO users (username, email, password_hash) VALUES (%s, %s, %s)",
+    cur.execute("INSERT INTO Users (username, email, password_hash) VALUES (%s, %s, %s)",
                 (username, email, password_hash))
 
     # Commit the changes to the database and close the cursor
@@ -108,6 +108,7 @@ def login():
     # Retrieve the email and password from the JSON body
     data = request.json
     email = data.get("email")
+    username = data.get("username")
     password = data.get("password")
 
     # Create a connection to the PostgreSQL database
@@ -123,13 +124,15 @@ def login():
     cur = conn.cursor()
 
     # Retrieve the user's hashed password based on the provided email
-    cur.execute("SELECT password_hash FROM users WHERE email = %s", (email,))
+    cur.execute("SELECT password_hash, username, email FROM users WHERE email = %s OR username = %s", (email, username))
     result = cur.fetchone()
 
     if result is None:
         return jsonify({"message": "Invalid email or password"}), 401
 
     stored_password_hash = result[0]
+    username = result[1]
+    email = result[2]
 
     # Verify the entered password against the stored hashed password
     if not pwd_context.verify(password, stored_password_hash):
@@ -138,6 +141,7 @@ def login():
     # Generate a JWT token for authentication
     payload = {
         "email": email,
+        "username": username,
         "exp": datetime.utcnow() + timedelta(days=1)  # Set the token expiration
     }
     token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")

@@ -21,10 +21,11 @@ cur = conn.cursor()
 
 # Create USERS table
 cur.execute("""
-    CREATE TABLE IF NOT EXISTS users (
-        username VARCHAR(255) PRIMARY KEY,
-        email VARCHAR(255) UNIQUE,
-        password_hash VARCHAR(255),
+    CREATE TABLE IF NOT EXISTS Users (
+        user_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+        username VARCHAR(255) UNIQUE NOT NULL,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password_hash VARCHAR(255) NOT NULL,
         create_date DATE,
         last_login_date DATE
     )
